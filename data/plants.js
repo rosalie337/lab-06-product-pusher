@@ -11,7 +11,7 @@ const jade = {
 const fiddle = {
     id: 'fiddle-leaf fig',
     name: 'Ficus lyrata',
-    image: 'fiddle.png',
+    image: 'fiddle.jpg',
     description: 'These trendy trees have more than just lush foliage going for them. Their hardy disposition can adapt to most bright locations (minus direct sunlight).',
     classification: 'Fig trees',
     price: 90.00,
@@ -21,7 +21,7 @@ const fiddle = {
 const chestnut = {
     id: 'guiana chestnut',
     name: 'Pachira aquatica',
-    image: 'chestnut.png',
+    image: 'chestnut.jpg',
     description: 'JMore commonly known as money tree, Pachira aquatica frequently features a braided trunk.',
     classification: 'Pachira',
     price: 10.00,
@@ -32,7 +32,7 @@ const chestnut = {
 const money = {
     id: 'chinese money plant',
     name: 'Pilea peperomioides',
-    image: 'money.png',
+    image: 'money.jpg',
     description: 'Here\'s another plant with fortuitous associations, although it also goes by the adorable nickname "Pancake Plant.',
     classification: 'Clearweed',
     price: 15.00,
@@ -42,7 +42,7 @@ const money = {
 const calathea = {
     id: 'calathea',
     name: 'Calathea',
-    image: 'calathea.png',
+    image: 'calathea.jpg',
     description: '"Prayer plants" are grown for their foliage alone, and it\'s easy to see why. The purple, green, pink, and red leaves put on quite the show.',
     classification: 'Arrowroots',
     price: 25.00,
@@ -52,27 +52,27 @@ const calathea = {
 const rubber = {
     id: 'rubber plant',
     name: 'Ficus elastica',
-    image: 'rubber.png',
+    image: 'rubber.jpg',
     description: 'Rubber trees can measure over 100 feet tall in their native Asia, but regular pruning can keep the ornamental variety in check.',
     classification: 'Fig tress',
     price: 15.00,
     origin: 'Asia'
 };
 
-const bromeliad = {
-    id: 'bromeliad',
-    name: 'Bromeliaceae',
-    image: 'bromeliad.png',
-    description: 'Like the pineapple, the bromeliad belongs to the bromeliaceae family. This plant "lasts a long time," says Sharon Nejman, Senior Horticulturist at Chicago Botanic Garden.',
-    classification: 'Poales',
+const zz = {
+    id: 'ZZ',
+    name: 'Zamioculcas',
+    image: 'zz.jpg',
+    description: 'ZZ has been around for centuries, originating in drought-prone Africa (where it thrives outdoors). A couple of decades ago, Dutch nurseries located in South Africa saw the plant’s propagating potential and in 1996 started distributing it around the world',
+    classification: 'Zamioculcadoideae',
     price: 20.00,
-    origin: 'West Africa'
+    origin: 'South Africa'
 };
 
 const philodendron= {
     id: 'philodendron',
     name: 'Philodendron',
-    image: 'phil.png',
+    image: 'philodendron.jpg',
     description: 'Hundreds of species of the large-leafed philodendron grow in the West Indies, Mexico, and Brazil.',
     classification: 'Araceae',
     price: 30.00,
@@ -86,7 +86,7 @@ const plants = [
     money,
     rubber,
     calathea,
-    bromeliad,
+    zz,
     philodendron,
 
 ];
