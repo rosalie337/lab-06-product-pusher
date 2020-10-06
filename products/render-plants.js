@@ -1,9 +1,9 @@
 function renderPlant(plant) {
-    const li = document.createElementById('li');
+    const li = document.createElement('li');
     li.className = plant.classification;
     li.title = plant.description;
 
-    const h3 = document.createElementById(h3);
+    const h3 = document.createElement('h3');
     h3.textContent = plant.name;
 
     const img = document.createElement('img');

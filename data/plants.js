@@ -83,7 +83,7 @@ const plants = [
     jade,
     fiddle,
     chestnut,
-    money-plant,
+    money,
     rubber,
     calathea,
     bromeliad,
