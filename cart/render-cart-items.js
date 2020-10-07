@@ -1,31 +1,31 @@
 import { toUSD } from '../common/format.js';
 
 function renderPlant(plant) {
-    const li = document.createElement('li');
-    li.title = fruit.description;
+    const nameCell = document.createElement('tr');
+    nameCell.classList.add('align-left');
+    nameCell.textContent = plant.name;
+    tr.appendChild(nameCell);
 
-    const h3 = document.createElement('h3');
-    h3.textContent = fruit.name;
-    li.appendChild(h3);
+    const quantityCell = document.createElement('td');
+    quantityCell.textContent = cartItem.quantity;
+    tr.appendChild(quantityCell);
 
-    const img = document.createElement('img');
-    img.src = '../assets/' + plant.image;
-    img.alt = fruit.name + 'image';
-    li.appendChild(img);
+    const priceCell = document.createElement('td');
+    priceCell.textContent = cartItem.quantity;
+    tr.appendChild(quantityCell);
 
-    const p = document.createElement('p');
-    p.className = 'price';
-    p.textContent = toUSD(plant.price);
+    const priceCell = document.createElement('td');
+    priceCell.textContent = toUSD(plant.price);
+    tr.appendChild(priceCell);
 
-    const button = document.createElement('button');
-    button.textContent = 'Add';
-    button.value = fruit.code;
-    p.appendChild(button);
+    const totalCell = document.createElement('td');
+    totalCell.classList.add('line-item-total');
+    const total = Number(cartItem.quantity) * Number(plant.price);
+    totalCell.textContent = toUSD(total);
+    li.appendChild(totalCell);
 
-    li.appendChild(p)
-
-    return li;
+    return tr;
 }
 
-export default renderFruit;
+export default renderCartItem;
 
