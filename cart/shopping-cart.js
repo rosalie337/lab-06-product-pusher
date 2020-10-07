@@ -1,7 +1,9 @@
 import cart from '../data/cart.js';
 import plants from '../data/plants.js';
-import { findById, orderTotal, toUSD } from '../common/utils.js';
+import { findById, orderTotal } from '../common/utils.js';
+import toUSD from '../common/format.js';
 import createRow from './render-cart-items.js';
+import { toUSD } from '../common/format.js';
 
 const tbody = document.querySelector('tbody');
 const orderTotalCell = document.getElementById('order-total-cell');
