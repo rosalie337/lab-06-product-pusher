@@ -1,31 +1,32 @@
 import { toUSD } from '../common/format.js';
+import plants from '../data/plants.js';
 
-function renderPlant(plant) {
-    const nameCell = document.createElement('tr');
+
+function createRow(plant) {
+    const tr = document.createElement('tr');
+    console.log (plant);
+    
+    const nameCell = document.createElement('td');
     nameCell.classList.add('align-left');
-    nameCell.textContent = plant.name;
+    nameCell.textContent = plant.id;
     tr.appendChild(nameCell);
 
     const quantityCell = document.createElement('td');
-    quantityCell.textContent = cartItem.quantity;
+    quantityCell.textContent = plant.quantity;
     tr.appendChild(quantityCell);
 
     const priceCell = document.createElement('td');
-    priceCell.textContent = cartItem.quantity;
-    tr.appendChild(quantityCell);
-
-    const priceCell = document.createElement('td');
-    priceCell.textContent = toUSD(plant.price);
+    priceCell.textContent = plant.price;
     tr.appendChild(priceCell);
 
     const totalCell = document.createElement('td');
     totalCell.classList.add('line-item-total');
-    const total = Number(cartItem.quantity) * Number(plant.price);
+    const total = Number(plant.quantity) * Number(plant.price);
     totalCell.textContent = toUSD(total);
-    li.appendChild(totalCell);
+    tr.appendChild(totalCell);
 
     return tr;
 }
 
-export default renderCartItem;
+export default createRow
 
