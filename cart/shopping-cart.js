@@ -4,7 +4,7 @@ import { findById, orderTotal, toUSD } from '../common/utils.js';
 import createRow from './render-cart-items.js';
 
 const tbody = document.querySelector('tbody');
-const orderTotalCell = document.getElementById('order-total-cell'); // value is never read?
+const orderTotalCell = document.getElementById('order-total-cell');
 
 for(let i = 0; cart.length; i++) {
     
@@ -16,4 +16,4 @@ for(let i = 0; cart.length; i++) {
 }
 
 const total = orderTotal(cart, plants);
-orderTotal.textContent = toUSD(total);
+orderTotalCell.textContent = toUSD(total);
