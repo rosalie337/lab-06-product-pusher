@@ -1,7 +1,4 @@
-// import { findbyId } from '../common/utils.js'
-// import { toUSD } from '../common/format.js
-
-import { toUSD } from "../common/format";
+import { toUSD } from '../common/format.js'
 
 function renderPlant(plant) {
     const li = document.createElement('li');

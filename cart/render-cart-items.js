@@ -1,5 +1,5 @@
 import { toUSD } from '../common/format.js';
-import plants from '../data/plants.js';
+// import plants from '../data/plants.js';
 
 
 function createRow(plant) {
@@ -43,6 +43,5 @@ export function total(plant) {
         
         console.log(element)
     }
-    
 }
 
