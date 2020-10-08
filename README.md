@@ -21,7 +21,7 @@ We won't be adding much new presentation, this will largely be "under the hood" 
 
 ## New Branch
 
-Make sure to work on a new branch!
+[x] Make sure to work on a new branch!
 
 ## Goal
 
@@ -77,9 +77,9 @@ Create a module called `cart-api.js`. Export a function for each of the specific
 
 Looking For | Points (10)
 :--|--:
-Hosted on GitHub with URL in About section | 1
-Add product to cart (addEventListener in render product) | 4
-Load cart on shopping cart page | 3
-Place order with alert, remove cart, and redirect | 2
-Add Quantity to product page | +1
-TDD `getCart`, `clearCart`, and `setCart` functions for `cart-api.js` | +1
+[x] Hosted on GitHub with URL in About section | 1
+[ ] Add product to cart (addEventListener in render product) | 4
+[ ] Load cart on shopping cart page | 3
+[ ] Place order with alert, remove cart, and redirect | 2
+[ ] Add Quantity to product page | +1
+[ ] TDD `getCart`, `clearCart`, and `setCart` functions for `cart-api.js` | +1
