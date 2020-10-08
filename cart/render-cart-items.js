@@ -21,7 +21,8 @@ function createRow(plant) {
 
     const totalCell = document.createElement('td');
     totalCell.classList.add('line-item-total');
-    const total = Number(plant.quantity) * Number(plant.price);
+    
+    const total = newFunction(plant);
     totalCell.textContent = toUSD(total);
     tr.appendChild(totalCell);
 
@@ -29,4 +30,19 @@ function createRow(plant) {
 }
 
 export default createRow
+
+export function newFunction(plant) {
+    return Number(plant.quantity) * Number(plant.price);
+}
+
+export function total(plant) {
+
+    const orderTotalCell = 0;
+    for (let i = 0; i < plant.length; i++) {
+        const element = plant[i];
+        
+        console.log(element)
+    }
+    
+}
 
