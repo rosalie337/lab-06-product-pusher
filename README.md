@@ -1,94 +1,75 @@
-# Lab-06-product-pusher
+# Lab 08: Data Persistence
 
 ## Goal
 
-Today we will be starting a new project, with basic elements of
-an e-commerce site including a product page and shopping cart. Decide your product domain and follow repository setup guide, giving your repository a relevant name related to the product.
+Today we are going to save our data and share it between our product page and our shopping cart page.
+
+We won't be adding much new presentation, this will largely be "under the hood" JavaScript work.
 
 ---
 
 ## Learning Objectives
-- Plan and implement a data model for a product
-- Use a for loop to get access to every item in an array
-- Use `document.createElement` to create DOM elements
-- Dynamically create event listeners for multiple items without having to copy and paste code.
-- Write, test, and use a function that takes in a product object and returns a DOM element for that product
+- Use localStorage to share data 1) persistently and 2) between different pages
+- Use `JSON.parse` and `JSON.stringify` to manage localStorage data
+- Use localStorage instead of hard-coded JSON to store your cart data
+- Manage the complexity of initializing data in the cart if it doesn't yet exist in localStorage
+- Manage the complexity of initizaling a cart item in the array if it doesn't exist in the array
+- Manage the complexity of adding a _second instance of the same product_ to the cart array
+- Dynamically create event listeners on the product page that add items to local storage
 
----
+--
 
-## Standard Setup Process
+## New Branch
 
-1. Create a repo called `lab-06-e-commerce-site` on Github
-    - make sure to click add a `README.md`
-1. Copy the URL of the new repo
-1. From the command line (terminal) clone your repo:
-    1. `git clone <url>`
-    1. **`cd` into your repo from the command line**
-    1. `npx create-alchemy-bootstrap .`
-    1. Launch vscode with `code .`
+Make sure to work on a new branch!
 
-## Topic
+## Goal
 
-Pick a real or fictitious product, up to you. You will ultimately need to come up with (at least) the following for each product:
+The goal is to have the "Add" button on each product add an instance of that product to the shopping cart. The shopping cart will be saved and retrieved from local storage.
 
-Property | Description
----|---
-`id` | a unique string that identifies this product
-`name` | user friendly name of the product
-`image` | image file name for this image (should live in `assets`)
-`description` | a longer description of the product
-`category` | the category this product belongs to, limit to one
-`price` | the price the user will pay
+### Step 1: Add Product to Shopping Cart
 
-## Pages
+In the code the renders a product, add an event listener to the "Add" button.
 
-The primary focus today is the product page (`products`). However, you should slot in a simple home page (`index.html`), which should have a link to the product page.
+This event handler will need to handle the following tasks:
 
-You should also have `common/main.css` used by all pages, as well as a page-specific css page (like `products/products.css`).
+1. Retrieve the existing shopping cart from localStorage
+    1. If there is no cart in data in localStorage, use an empty array: `[]`
+    1. If there is cart data in localStorage, turn into array using `JSON.parse`
+1. Check if the shopping cart already has the line item for this product. You can reuse your `findById` function for this taks.
+    1. If it does exist, increment the quantity.
+    1. If it does not exist create a new line item with the following format:
+        ```js
+        const lineItem = {
+            id: <product-id>,
+            quantity: 1
+        };
+        ```
+1. Save the modified cart array back to localStorage, remembering to serialize with `JSON.stringify` before saving
 
-## Product Page
+### Step 2: Get Shopping Cart from localStorage on Shopping Cart Page
 
-The goal for today is to generate a list of products from product data.
+Instead importing a hard-coded cart data, retrieve the shopping cart from localStorage (don't forget to `JSON.parse`!) and use it in rendering the table.
 
-### Step 1: Design List
+### Step 3: Place Order 
 
-Work out the static design for one product in your list. This will help you to flush out what data will be needed. Make sure to include an "Add" button whose value is the product `id`.
+1. If there are no line items in the cart, disable the "Place Order" button.
+1. Add an event handler to the "Place Order" button that:
+    1. Displays an `alert` with the contents of the cart (hint: `JSON.stringify(cart, true, 2)` will give you nicely formatted `JSON`)
+    1. Remove the cart from localStorage (`.removeItem`)
+    1. Redirect the user back to the home page
 
-**git add, commit, push!**
+### STRETCH: Add Quantity of Products
 
-### Step 2: Product Data
+Add a quantity drop-down to the rendered product. When the "Add" button is clicked, add the indicated amount of product to the quantity.
 
-In a new JavaScript file, named by the domain (class example was `fruits.js`):
+### STRETCH: Move Data Work to Function
 
-1. Write out object literals for each product, storing in a variable with same name as product `id`. These objects are key/value pairs whose values uniquely describe each product. All products should have _exactly_ the same keys!
-2. Create a variable that is an array of all of your products
-3. Export this array.
+Create a module called `cart-api.js`. Export a function for each of the specific data tasks below. You already have the correct code, remove it into these functions and change existing code to import and use these new functions instead:
 
-**git add, commit, push!**
-
-### Step 3: TDD DOM Render Function
-
-Write a test that passes a product to a function and asserts that the return dom with `.toOuterHTML` matches your static html example:
-1. Copy html from the page
-1. You will need to remove extraneous whitespace. Don't worry, you can adjust the test as need
-1. Copy the object product data for the one that corresponds to the example, and use as your input to your function
-1. Using the DOM API, create your static example _programmatically_
-using JavaScript. Start by creating the top level element (`<li>` for the product list)
-1. Make the test pass! (Again, you may need to adjust html syntax - pay close attention to test details)
-
-**git add, commit, push!**
-
-### Step 4: Generate Product List
-
-In your `products.js`, you will need to:
-1. import your data and your DOM generation function
-2. locate the list element where your products will go
-3. loop through your data
-    1. Create a variable that is the singular of your domain list and assign based on the current array index. For example, `const fruit = fruits[i];`
-    1. Pass to your DOM generation function and capture result in variable
-    1. Append to the top-level list element
-
-**git add, commit, push!**
+1. `getCart`
+1. `addToCart`
+1. `clearCart`
 
 ---
 
@@ -96,8 +77,9 @@ In your `products.js`, you will need to:
 
 Looking For | Points (10)
 :--|--:
-Hosted on GitHub with URL in About section, Product HTML works and uses good Semantic Element choices  | 2 
-CSS used consciously and correctly | 1
-Products Object Literals and Array of all Products | 2
-TDD DOM Render Function | 3
-Correctly orchestrate product generation in `products.js` using a for loop and your render function | 2 
+Hosted on GitHub with URL in About section | 1
+Add product to cart (addEventListener in render product) | 4
+Load cart on shopping cart page | 3
+Place order with alert, remove cart, and redirect | 2
+Add Quantity to product page | +1
+TDD `getCart`, `clearCart`, and `setCart` functions for `cart-api.js` | +1
