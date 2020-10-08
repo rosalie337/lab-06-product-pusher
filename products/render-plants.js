@@ -17,9 +17,6 @@ function renderPlant(plant) {
     p.className = 'price';
     p.textContent = toUSD(plant.price);
 
-    // const usd = '$' + plant.price.toFixed(2);
-    // p.textContent = usd;
-
     const button = document.createElement('button');
     button.textContent = 'Add';
     button.value = plant.id;
