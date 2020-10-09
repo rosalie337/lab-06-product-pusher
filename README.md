@@ -36,7 +36,7 @@ This event handler will need to handle the following tasks:
 1. Retrieve the existing shopping cart from localStorage
     1. If there is no cart in data in localStorage, use an empty array: `[]`
     1. If there is cart data in localStorage, turn into array using `JSON.parse`
-1. Check if the shopping cart already has the line item for this product. You can reuse your `findById` function for this taks.
+1. Check if the shopping cart already has the line item for this product. You can reuse your `findById` function for this tasks.
     1. If it does exist, increment the quantity.
     1. If it does not exist create a new line item with the following format:
         ```js

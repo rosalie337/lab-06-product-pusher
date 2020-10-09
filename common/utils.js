@@ -1,3 +1,8 @@
+export function lineTotal(quantity, price) {
+    const amount = quantity * price;
+    return roundCurrency (amount);
+
+}
 export function findById(items, id) {
     for(let i = 0; i < items.length; i ++) {
         const item = items[i];
@@ -11,12 +16,6 @@ export function findById(items, id) {
 }
 
 // I seen export function to USD(number), but is already in format.js. Is it better to put them all in utils.js or separate for modularity?
-
-export function lineTotal(quantity, price) {
-    const amount = quantity * price;
-    return roundCurrency (amount);
-
-}
 
 function roundCurrency(amount) {
     return Math.round(amount * 100)/ 100;

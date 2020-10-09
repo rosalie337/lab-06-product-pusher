@@ -1,4 +1,5 @@
-import { toUSD } from '../common/format.js'
+import { toUSD } from '../common/format.js';
+import { findById } from '../common/utils.js';
 
 function renderPlant(plant) {
     const li = document.createElement('li');
@@ -37,7 +38,8 @@ function renderPlant(plant) {
 
                 // plant is the PASSED parameter
                 id: plant.id,
-                quantity: 1
+                quantity: 1,
+                price: plant.price,
             };
         
             // push an itemInCart into the cart
