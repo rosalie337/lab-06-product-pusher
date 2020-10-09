@@ -1,6 +1,4 @@
 import { toUSD } from '../common/format.js';
-import plants from '../data/plants.js';
-
 
 function createRow(plant) {
     const tr = document.createElement('tr');
@@ -35,14 +33,13 @@ export function newFunction(plant) {
     return Number(plant.quantity) * Number(plant.price);
 }
 
-export function total(plant) {
+export function total(plants) {
 
     const orderTotalCell = 0;
-    for (let i = 0; i < plant.length; i++) {
-        const element = plant[i];
+    for (let i = 0; i < plants.length; i++) {
+        const element = plants[i];
         
         console.log(element)
     }
-    
 }
 
